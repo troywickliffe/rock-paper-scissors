@@ -20,6 +20,8 @@
             let playerSelection = prompt("Choose: Rock, Paper or Scissors?").toLowerCase();
             let computerSelection = getComputerChoice();
             if(playerSelection === computerSelection) {
+                playerScore += 0
+                computerScore += 0
                 return `It's a Draw! You both picked ${playerSelection}`;
             } else if (playerSelection === "rock" && computerSelection === "scissors") {
                     ++playerScore
@@ -36,9 +38,26 @@
             }
         }
         
+        // step 5:6 - 5 round game of rock paper scissors
+        
+        function game() {
+            console.log(playRound());
+            console.log(playRound());
+            console.log(playRound());
+            console.log(playRound());
+            console.log(playRound());
+
+            if (playerScore > computerScore) {
+                return "You Win the game!";
+            } else if (playerScore < computerScore) {
+                return "You lost the game..";
+            } else {
+                return "It's a Draw!";
+            }
+        }
         let playerScore = 0;
         let computerScore = 0;
-        
+        console.log(game())
         
 
     </script>
