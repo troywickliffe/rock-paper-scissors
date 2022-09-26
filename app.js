@@ -28,7 +28,6 @@ function playRound(playerChoice, computerChoice) {
 }
 
 // step 5:6 - 5 round game of rock paper scissors
-
 function game() {
     console.log(playRound());
     console.log(playRound());
