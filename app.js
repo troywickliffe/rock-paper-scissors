@@ -1,3 +1,28 @@
+const game = () => {
+    let pScore = 0;
+    let cScore = 0;
+
+
+//Play Match 
+    const playMatch = () => {
+        const rockBtn = document.querySelector('.rock');
+        const paperBtn = document.querySelector('.paper');
+        const scissorBtn = document.querySelector('.scissors');
+        const playerOptions = [rockBtn, paperBtn, scissorBtn];
+        const computerOptions = ['rock', 'paper', 'scissors'];
+        //Function that will start the game
+        playerOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                //Computer Random Choice
+                const choiceNumber = Math.floor(Math.random() * 3);
+                const computerChoice = computerOptions[choiceNumber]; 
+                //Check winner
+                winner(this.innerText, computerChoice) 
+            })
+        })
+        
+    }
+}
 // // step 3 - randomly return rock paper scissors
 // function getComputerChoice() {
 //     const pick = ["rock", "paper", "scissors"];
