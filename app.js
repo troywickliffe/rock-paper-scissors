@@ -22,6 +22,11 @@ const game = () => {
         })
         
     }
+    //Decide Winner
+    const winner = (player, computer) => {
+        const results = document.querySelector('.results');
+        
+    }
 }
 // // step 3 - randomly return rock paper scissors
 // function getComputerChoice() {
