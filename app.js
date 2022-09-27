@@ -17,7 +17,7 @@ const game = () => {
                 const choiceNumber = Math.floor(Math.random() * 3);
                 const computerChoice = computerOptions[choiceNumber]; 
                 //Check winner
-                winner(this.innerText, computerChoice) 
+                winner(this.textContent, computerChoice) 
             })
         })
         
@@ -25,9 +25,41 @@ const game = () => {
     //Decide Winner
     const winner = (player, computer) => {
         const results = document.querySelector('.results');
-        
+        const playerScore = document.querySelector('.p-count');
+        const computerScore = document.querySelector('.c-count');
+        player = player.toLowerCase();
+        computer = computer.toLowerCase();
+        if (player === computer) {
+            results.textContent = 'Tie'
+        } else if (player === 'rock' && computer === 'paper') {
+            results.textContent = 'You Won';
+            pScore++;
+            playerScore.textContent = pScore;
+        } else if (player === 'paper' && computer === 'rock') {
+            results.textContent = 'You Won';
+            pScore++;
+            playerScore.textContent = pScore;
+        } else if (player === 'scissors' && computer === 'paper') {
+            results.textContent = 'You Won';
+            pScore++;
+            playerScore.textContent = pScore;
+        } else {
+            results.textContent = 'Computer Won';
+            cScore++;
+            computerScore.textContent = cScore;
+        }
+        if (pScore === 5) {
+            results.textContent = 'You Win the Game!';
+            return;
+        } else if (cScore === 5) {
+            results.textContent = 'Computer Wins the Game..';
+            return;
+        }
     }
+    // Call playMatch function
+    playMatch();
 }
+game();
 // // step 3 - randomly return rock paper scissors
 // function getComputerChoice() {
 //     const pick = ["rock", "paper", "scissors"];
