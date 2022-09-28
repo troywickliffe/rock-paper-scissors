@@ -1,66 +1,59 @@
 const game = () => {
     let pScore = 0;
     let cScore = 0;
+ 
+    const startGame = () => {
+        const playBtn = document.querySelector('.play-game button');
+        const intro = document.querySelector('.play-game');
+        const match = document.querySelector('.match');
 
+        playBtn.addEventListener('click', () => {
+            intro.classList.add('fadeOut');
+            match.classList.add('fadeIn');
+        });
+    };
 
-//Play Match 
-    const playMatch = () => {
-        // const rockBtn = document.querySelector('.rock');
-        // const paperBtn = document.querySelector('.paper');
-        // const scissorBtn = document.querySelector('.scissors');
-        const playerOptions = document.querySelectorAll('.options button')
-        const computerOptions = ['rock', 'paper', 'scissors'];
-        //Function that will start the game
-        playerOptions.forEach(option => {
-            option.addEventListener('click', function() {
-                console.log(this);
-                //Computer Random Choice
-                const choiceNumber = Math.floor(Math.random() * 3);
-                const computerChoice = computerOptions[choiceNumber]; 
-                //Check winner
-                winner(this.textContent, computerChoice) 
-            })
-        })
-        
-    }
-    //Decide Winner
-    const winner = (player, computer) => {
-        const results = document.querySelector('.results');
-        const playerScore = document.querySelector('.p-count');
-        const computerScore = document.querySelector('.c-count');
-        player = player.toLowerCase();
-        computer = computer.toLowerCase();
-        if (player === computer) {
-            results.textContent = 'Tie'
-        } else if (player === 'rock' && computer === 'paper') {
-            results.textContent = 'You Won';
-            pScore++;
-            playerScore.textContent = pScore;
-        } else if (player === 'paper' && computer === 'rock') {
-            results.textContent = 'You Won';
-            pScore++;
-            playerScore.textContent = pScore;
-        } else if (player === 'scissors' && computer === 'paper') {
-            results.textContent = 'You Won';
-            pScore++;
-            playerScore.textContent = pScore;
-        } else {
-            results.textContent = 'Computer Won';
-            cScore++;
-            computerScore.textContent = cScore;
-        }
-        if (pScore === 5) {
-            results.textContent = 'You Win the Game!';
-            return;
-        } else if (cScore === 5) {
-            results.textContent = 'Computer Wins the Game..';
-            return;
-        }
-    }
-    // Call playMatch function
-    playMatch();
-}
-game();
+    startGame();
+};
+game()
+//     //Decide Winner
+//     const winner = (player, computer) => {
+//         const results = document.querySelector('.results');
+//         const playerScore = document.querySelector('.p-count');
+//         const computerScore = document.querySelector('.c-count');
+//         player = player.toLowerCase();
+//         computer = computer.toLowerCase();
+//         if (player === computer) {
+//             results.textContent = 'Tie'
+//         } else if (player === 'rock' && computer === 'paper') {
+//             results.textContent = 'You Won';
+//             pScore++;
+//             playerScore.textContent = pScore;
+//         } else if (player === 'paper' && computer === 'rock') {
+//             results.textContent = 'You Won';
+//             pScore++;
+//             playerScore.textContent = pScore;
+//         } else if (player === 'scissors' && computer === 'paper') {
+//             results.textContent = 'You Won';
+//             pScore++;
+//             playerScore.textContent = pScore;
+//         } else {
+//             results.textContent = 'Computer Won';
+//             cScore++;
+//             computerScore.textContent = cScore;
+//         }
+//         if (pScore === 5) {
+//             results.textContent = 'You Win the Game!';
+//             return;
+//         } else if (cScore === 5) {
+//             results.textContent = 'Computer Wins the Game..';
+//             return;
+//         }
+//     }
+//     // Call playMatch function
+//     playMatch();
+// }
+// game();
 // // step 3 - randomly return rock paper scissors
 // function getComputerChoice() {
 //     const pick = ["rock", "paper", "scissors"];
