@@ -54,3 +54,13 @@ h3 {
     cursor: pointer;
     font-weight: bold;
 }
+
+div.fadeOut {
+    opacity: 0;
+    pointer-events: none;
+}
+
+div.fadeIn {
+    opacity: 1;
+    pointer-events: all;
+}

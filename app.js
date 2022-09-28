@@ -5,14 +5,15 @@ const game = () => {
 
 //Play Match 
     const playMatch = () => {
-        const rockBtn = document.querySelector('.rock');
-        const paperBtn = document.querySelector('.paper');
-        const scissorBtn = document.querySelector('.scissors');
-        const playerOptions = [rockBtn, paperBtn, scissorBtn];
+        // const rockBtn = document.querySelector('.rock');
+        // const paperBtn = document.querySelector('.paper');
+        // const scissorBtn = document.querySelector('.scissors');
+        const playerOptions = document.querySelectorAll('.options button')
         const computerOptions = ['rock', 'paper', 'scissors'];
         //Function that will start the game
         playerOptions.forEach(option => {
             option.addEventListener('click', function() {
+                console.log(this);
                 //Computer Random Choice
                 const choiceNumber = Math.floor(Math.random() * 3);
                 const computerChoice = computerOptions[choiceNumber]; 
