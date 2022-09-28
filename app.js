@@ -2,6 +2,7 @@ const game = () => {
     let pScore = 0;
     let cScore = 0;
  
+    //Start Game of Rock Paper Scissors function
     const startGame = () => {
         const playBtn = document.querySelector('.play-game button');
         const intro = document.querySelector('.play-game');
@@ -12,10 +13,28 @@ const game = () => {
             match.classList.add('fadeIn');
         });
     };
+    //Play Match function
+    const playMatch = () => {
+        const options = document.querySelectorAll('.options button');
+        //Computer Options
+        const computerOptions = ['rock', 'paper', 'scissors'];
+
+        options.forEach(option => {
+            option.addEventListener('click', function() {
+                //Computer Choice
+                const computerNumber = Math.floor(Math.random() * 3);
+                const computerChoice = computerOptions[computerNumber];
+                console.log(computerChoice);
+            });
+        });
+
+    };
 
     startGame();
+    playMatch();
 };
-game()
+game();
+
 //     //Decide Winner
 //     const winner = (player, computer) => {
 //         const results = document.querySelector('.results');
