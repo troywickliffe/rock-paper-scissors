@@ -24,11 +24,53 @@ const game = () => {
                 //Computer Choice
                 const computerNumber = Math.floor(Math.random() * 3);
                 const computerChoice = computerOptions[computerNumber];
-                console.log(computerChoice);
+                //Compare hands
+                compareHands(this.textContent, computerChoice);
             });
         });
-
     };
+    
+
+    
+    const compareHands = (playerChoice, computerChoice) => {
+        //Update Winner on h3
+        const winner = document.querySelector('.winner')
+        //Check for a tie
+        if(playerChoice === computerChoice) {
+            winner.textContent = 'It is a Tie';
+            return;
+        }
+        //Check for Rock
+        if(playerChoice === 'rock') {
+            if(computerChoice === 'scissors') {
+                winner.textContent = 'You Win!'
+                return;
+            } else {
+                winner.textContent = 'Computer Wins';
+                return;
+            }
+        }
+        //Check for Paper
+        if(playerChoice === 'paper') {
+            if(computerChoice === 'scissors') {
+                winner.textContent = 'Computer Wins'
+                return;
+            } else {
+                winner.textContent = 'You Win!';
+                return;
+            }
+        }
+        //Check for Scissors
+        if(playerChoice === 'scissors') {
+            if(computerChoice === 'rock') {
+                winner.textContent = 'Computer Wins'
+                return;
+            } else {
+                winner.textContent = 'You Win!';
+                return;
+            }
+        }
+    }
 
     startGame();
     playMatch();
